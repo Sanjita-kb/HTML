@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Percentage Calculator</title>
+    <script type="text/javascript">
+        function findPercentage(totalMarks) {
+            // Check if input is a valid number
+            if (isNaN(totalMarks) || totalMarks === "") {
+                alert("Please enter a valid number!");
+                return;
+            }
+
+            // Convert input to a number
+            totalMarks = parseFloat(totalMarks);
+
+            // Check if marks are within valid range (0-300)
+            if (totalMarks < 0 || totalMarks > 300) {
+                alert("Marks must be between 0 and 300!");
+                return;
+            }
+
+            // Calculate percentage
+            const percentage = (totalMarks / 300) * 100;
+            
+            // Display result
+            alert(`Your percentage: ${percentage.toFixed(2)}%`);
+        }
+    </script>
+</head>
+<body bgcolor="cyan">
+    <center>
+        <h2>Percentage Calculator</h2>
+        <form id="myForm">
+            Enter Total Marks (Out of 300): 
+            <input type="number" id="TotalMarks" placeholder="Enter marks (0-300)" />
+            <br/><br/>
+            <input type="button" id="percentage" value="Calculate Percentage" 
+                   onclick="findPercentage(document.getElementById('TotalMarks').value)" />
+        </form>
+    </center>
+</body>
+</html>
